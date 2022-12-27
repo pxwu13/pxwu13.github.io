@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+</head>
+
+<body>
+    <!-- window.location 是寫表單送出成功後要進到哪一個頁面 -->
+    <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;"
+        onload="if(typeof sent_redirect!='undefined'){window.location='test.html';}"></iframe>
+    <!-- .container is main centered wrapper -->
+    <div class="container">
+        <form onsubmit="sent_redirect=true" target="iframe_redirect"
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdg8g9V9ypNBkhvMMH5LlQtrkW-91hVJZ_XoA8qhmyTib8luQ/formResponse"
+            method="POST">
+            <!--姓名-->
+            <div class="input-group">
+                <label for="entry.136984385">姓名</label>
+                <input type="text" name="entry.136984385" value="">
+            </div>
+            <!--性別-->
+            <div class="input-group">
+                <label>性別</label>
+                <div class="radio-group row">
+                    <div class="four columns">
+                        <label for="male">
+                            <input type="radio" name="entry.962841591" value="male" checked>男性
+                        </label>
+                    </div>
+                    <div class="four columns">
+                        <label>
+                            <input type="radio" name="entry.962841591" value="female">女性
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--類別-->
+            <div class="input-group">
+                <label for="">類別</label>
+                <select class="u-full-width" name="entry.2007259481">
+                    <option value="0" selected disabled>請選擇</option>
+                    <option value="cat">貓</option>
+                    <option value="dog">狗</option>
+                    <option value="bear">熊</option>
+                </select>
+            </div>
+            <!--日期-->
+            <div class="input-group">
+                <label for="entry.2034304089">日期</label>
+                <input type="date" id="date" name="entry.2034304089">
+            </div>
+            <input class="button-primary" type="submit" value="OK">
+        </form>
+        <script>
+            document.getElementById('date').valueAsDate = new Date();
+        </script>
+    </div>
+</body>
+
+</html>
