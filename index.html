@@ -2,62 +2,155 @@
 <html lang="en">
 
 <head>
+    <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Bootstrap required js-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .key {
+            padding: 1rem;
+            background-color: orange;
+        }
+
+        .buttons {
+            padding-top: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .btn-cal {
+            margin: 0rem;
+            height: 4rem;
+            width: 4rem;
+            background-color: white;
+            border-color: black;
+            border-radius: 4rem;
+            border-width: 0.1rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+
+    <!-- Title-->
+    <title>2023記帳</title>
 </head>
 
 <body>
-    <!-- window.location 是寫表單送出成功後要進到哪一個頁面 -->
-    <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;"
-        onload="if(typeof sent_redirect!='undefined'){window.location='index.html';}"></iframe>
-    <!-- .container is main centered wrapper -->
     <div class="container">
+        <!-- Submit redirect-->
+        <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;"
+            onload="if(typeof sent_redirect!='undefined'){window.location='index.html';}"></iframe>
+        <!-- Name-->
         <form onsubmit="sent_redirect=true" target="iframe_redirect"
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdg8g9V9ypNBkhvMMH5LlQtrkW-91hVJZ_XoA8qhmyTib8luQ/formResponse"
             method="POST">
-            <!--姓名-->
-            <div class="input-group">
-                <label for="entry.136984385">姓名</label>
-                <input type="text" name="entry.136984385" value="">
+            <div class="form-group">
+                <label for="entry.136984385">Name</label>
+                <input type="text" name="entry.136984385" value="" class="form-control">
             </div>
-            <!--性別-->
-            <div class="input-group">
-                <label>性別</label>
-                <div class="radio-group row">
-                    <div class="four columns">
-                        <label for="male">
-                            <input type="radio" name="entry.962841591" value="male" checked>男性
-                        </label>
-                    </div>
-                    <div class="four columns">
-                        <label>
-                            <input type="radio" name="entry.962841591" value="female">女性
-                        </label>
-                    </div>
+
+            <!-- Sex-->
+            <div class="form-group">
+                <label>Sex</label>
+                <!-- Radio 1-->
+                <div class="form-check">
+                    <input type="radio" name="entry.962841591" id="" class="form-check-input" value="Male" checked>
+                    <label for="entry.962841591" class="form-check-label">Male</label>
+                </div>
+                <!-- Radio 2-->
+                <div class="form-check">
+                    <input type="radio" name="entry.962841591" id="" class="form-check-input" value="Female">
+                    <label for="entry.962841591" class="form-check-label">Female</label>
                 </div>
             </div>
-            <!--類別-->
-            <div class="input-group">
-                <label for="">類別</label>
-                <select class="u-full-width" name="entry.2007259481">
+
+            <!-- Type-->
+            <div class="form-group">
+                <label for="entry.2007259">Type</label>
+                <select class="form-control" name="entry.2007259481">
                     <option value="0" selected disabled>請選擇</option>
                     <option value="cat">貓</option>
                     <option value="dog">狗</option>
                     <option value="bear">熊</option>
                 </select>
             </div>
-            <!--日期-->
-            <div class="input-group">
-                <label for="entry.2034304089">日期</label>
-                <input type="date" id="date" name="entry.2034304089">
+
+            <!-- Date-->
+            <div class="form-group">
+                <label for="entry.2034304089">Date</label>
+                <input type="date" id="date" name="entry.2034304089" class="form-control">
             </div>
-            <input class="button-primary" type="submit" value="OK">
+
+            <!-- Quantity-->
+            <div class="row key">
+                <input type="text" class="form-control btn-screen" value="10">
+                <div class="row buttons">
+                    <button type="button" class="btn btn-cal" value="7">7</button>
+                    <button type="button" class="btn btn-cal" value="8">8</button>
+                    <button type="button" class="btn btn-cal" value="9">9</button>
+                </div>
+                <div class="row buttons">
+                    <button type="button" class="btn btn-cal" value="4">4</button>
+                    <button type="button" class="btn btn-cal" value="5">5</button>
+                    <button type="button" class="btn btn-cal" value="6">6</button>
+                </div>
+                <div class="row buttons">
+                    <button type="button" class="btn btn-cal" value="1">1</button>
+                    <button type="button" class="btn btn-cal" value="2">2</button>
+                    <button type="button" class="btn btn-cal" value="3">3</button>
+                </div>
+                <div class="row buttons">
+                    <button type="button" class="btn btn-cal" value="0">0</button>
+                    <button type="button" class="btn btn-cal back" value="">←</button>
+                    <button type="button" class="btn btn-cal all-clear" value="AC">AC</button>
+                </div>
+            </div>
+
+            <!-- Submit-->
+            <button class="btn btn-primary" type="submit">Submit</button>
         </form>
         <script>
+            // Set default date = today
             document.getElementById('date').valueAsDate = new Date();
+
+            // Keyboard listener
+            const displayValue = 111;
+            // Update display
+            function updateDisplay() {
+                const display = document.querySelector('.btn-screen');
+                display.value = 111;
+            }
+
+            const keys = document.querySelector('.key');
+            keys.addEventListener('click', (event) => {
+                const { target } = event;
+                if (target.matches('button')) {
+                    const display = document.querySelector('.btn-screen');
+                    if (target.classList.contains('all-clear')) {
+                        display.value = 0;
+                        return;
+                    }
+                    if (target.classList.contains('back')) {
+                        display.value = display.value.substring(0, display.value.length - 1);
+                        return;
+                    }
+                    display.value = display.value + target.value;
+                }
+            });
         </script>
     </div>
 </body>
