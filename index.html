@@ -22,26 +22,67 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
+    <!-- CSS-->
     <style>
-        .key {
-            padding: 1rem;
-            background-color: orange;
+        .btn-num {
+            background: white;
+            border: solid 0.0625rem black;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
         }
 
-        .buttons {
-            padding-top: 0.5rem;
-            padding-left: 1rem;
+        .btn-num:hover {
+            color: darkgrey;
+            background: white;
+            border: solid 0.0625rem black;
+            font-size: 1rem;
+            font-weight: bold;
+            transition-duration: 0.2s;
         }
 
-        .btn-cal {
-            margin: 0rem;
-            height: 4rem;
-            width: 4rem;
+        .bg-orange {
+            background-color: #fec952;
+        }
+
+        .bg-blue {
+            background-color: #47b7e0;
+        }
+
+        .bg-red {
+            background-color: #ff7473;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]:checked+label {
+            background-color: #47b7e0;
+        }
+
+        .input-num {
+            text-align: right;
+            pointer-events: none;
+        }
+
+        .btn-type {
             background-color: white;
-            border-color: black;
-            border-radius: 4rem;
-            border-width: 0.1rem;
-            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .area-type {
+            border: solid 0.125rem black;
+            border-radius: .25rem;
+        }
+
+        .btn-role {
+            border: solid 0.125rem black;
+            font-weight: bold;
+        }
+
+        .btn-submit {
+            border: solid 0.0625rem;
         }
     </style>
 
@@ -58,97 +99,170 @@
         <form onsubmit="sent_redirect=true" target="iframe_redirect"
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdg8g9V9ypNBkhvMMH5LlQtrkW-91hVJZ_XoA8qhmyTib8luQ/formResponse"
             method="POST">
-            <div class="form-group">
-                <label for="entry.136984385">Name</label>
-                <input type="text" name="entry.136984385" value="" class="form-control">
-            </div>
+            <!-- 
+                <div jsname="o6bZLc">
+                    <input type="hidden" name="entry.136984385" value="">支出/收入
+                    <input type="hidden" name="entry.962841591" value="">
+                    <input type="hidden" name="entry.2007259481" value="">
+                    <input type="hidden" name="entry.2034304089" value="">日期
+                    <input type="hidden" name="entry.44147002" value="">咚/虎
+                    <input type="hidden" name="entry.339193861" value="">家庭/個人
+                </div>
+            -->
 
-            <!-- Sex-->
-            <div class="form-group">
-                <label>Sex</label>
-                <!-- Radio 1-->
-                <div class="form-check">
-                    <input type="radio" name="entry.962841591" id="" class="form-check-input" value="Male" checked>
-                    <label for="entry.962841591" class="form-check-label">Male</label>
+            <div class="form-row px-2 mt-3 mb-2">
+                <!-- 咚虎:咚/虎 44147002-->
+                <div class="input-group col-3 m-0 p-0 pr-1">
+                    <input type="button" class="btn btn-role bg-blue col" value="咚" id="role" />
+                    <input type="hidden" name="entry.44147002" value="咚" id="role-input" />
                 </div>
-                <!-- Radio 2-->
-                <div class="form-check">
-                    <input type="radio" name="entry.962841591" id="" class="form-check-input" value="Female">
-                    <label for="entry.962841591" class="form-check-label">Female</label>
-                </div>
-            </div>
 
-            <!-- Type-->
-            <div class="form-group">
-                <label for="entry.2007259">Type</label>
-                <select class="form-control" name="entry.2007259481">
-                    <option value="0" selected disabled>請選擇</option>
-                    <option value="cat">貓</option>
-                    <option value="dog">狗</option>
-                    <option value="bear">熊</option>
-                </select>
-            </div>
+                <!-- 支收:支出/收入 136984385-->
+                <div class="input-group area-type col m-0 p-0">
+                    <input type="radio" name="entry.136984385" id="c11" value="支出" checked />
+                    <label for="c11" class="btn btn-type col-6 m-0">支出</label>
+                    <input type="radio" name="entry.136984385" id="c12" value="收入" />
+                    <label for="c12" class="btn btn-type col-6 m-0">收入</label>
+                </div>
 
-            <!-- Date-->
-            <div class="form-group">
-                <label for="entry.2034304089">Date</label>
-                <input type="date" id="date" name="entry.2034304089" class="form-control">
-            </div>
-
-            <!-- Quantity-->
-            <div class="row key">
-                <input type="text" class="form-control btn-screen" value="10">
-                <div class="row buttons">
-                    <button type="button" class="btn btn-cal" value="7">7</button>
-                    <button type="button" class="btn btn-cal" value="8">8</button>
-                    <button type="button" class="btn btn-cal" value="9">9</button>
-                </div>
-                <div class="row buttons">
-                    <button type="button" class="btn btn-cal" value="4">4</button>
-                    <button type="button" class="btn btn-cal" value="5">5</button>
-                    <button type="button" class="btn btn-cal" value="6">6</button>
-                </div>
-                <div class="row buttons">
-                    <button type="button" class="btn btn-cal" value="1">1</button>
-                    <button type="button" class="btn btn-cal" value="2">2</button>
-                    <button type="button" class="btn btn-cal" value="3">3</button>
-                </div>
-                <div class="row buttons">
-                    <button type="button" class="btn btn-cal" value="0">0</button>
-                    <button type="button" class="btn btn-cal back" value="">←</button>
-                    <button type="button" class="btn btn-cal all-clear" value="AC">AC</button>
+                <!-- 公私:家庭/個人 339193861-->
+                <div class="input-group col-3 m-0 p-0 pl-1">
+                    <input type="button" class="btn btn-role bg-orange col" value="家庭" id="private" />
+                    <input type="hidden" name="entry.339193861" value="家庭" id="private-input" />
                 </div>
             </div>
 
-            <!-- Submit-->
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <!-- Radio type-->
+            <div class="area-type px-0 mb-2">
+                <div class="input-group">
+                    <input type="radio" name="entry.962841591" id="size_1" value="飲食" checked />
+                    <label for="size_1" class="btn btn-type col m-0">飲食</label>
+
+                    <input type="radio" name="entry.962841591" id="size_2" value="衣飾" />
+                    <label for="size_2" class="btn btn-type col m-0">衣飾</label>
+
+                    <input type="radio" name="entry.962841591" id="size_3" value="住行" />
+                    <label for="size_3" class="btn btn-type col m-0">住行</label>
+                </div>
+                <div class="input-group">
+                    <input type="radio" name="entry.962841591" id="size_4" value="育樂" />
+                    <label for="size_4" class="btn btn-type col m-0">育樂</label>
+
+                    <input type="radio" name="entry.962841591" id="size_5" value="社交" />
+                    <label for="size_5" class="btn btn-type col m-0">社交</label>
+
+                    <input type="radio" name="entry.962841591" id="size_6" value="其他" />
+                    <label for="size_6" class="btn btn-type col m-0">其他</label>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="bg-orange p-2">
+                    <!-- Date-->
+                    <div class="form-row mb-2">
+                        <div class="col">
+                            <input type="date" id="date" name="entry.2034304089" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Quantity-->
+                    <div class="form-row mb-2">
+                        <div class="col-4 pr-0">
+                            <input type="text" id="num" name="entry.2007259481" class="form-control input-num"
+                                value="0">
+                        </div>
+                        <div class="col-8">
+                            <input type="text" value="" placeholder="在此輸入備註" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Numeric Keyboard-->
+                    <div class="key">
+                        <div class="form-row mb-2 px-2">
+                            <div class="btn btn-num col-2 mr-2 btn-cal">7</div>
+                            <div class="btn btn-num col-2 mr-2 ">8</div>
+                            <div class="btn btn-num col-2 mr-2 ">9</div>
+                        </div>
+                        <div class="form-row mb-2 px-2">
+                            <div class="btn btn-num col-2 mr-2">4</div>
+                            <div class="btn btn-num col-2 mr-2">5</div>
+                            <div class="btn btn-num col-2 mr-2">6</div>
+                        </div>
+                        <div class="form-row mb-2 px-2">
+                            <div class="btn btn-num col-2 mr-2">1</div>
+                            <div class="btn btn-num col-2 mr-2">2</div>
+                            <div class="btn btn-num col-2 mr-2">3</div>
+                        </div>
+                        <div class="form-row mb-2 px-2">
+                            <div class="btn btn-num col-2 mr-2">0</div>
+                            <div class="btn btn-num col-2 mr-2 bg-blue back">＜</div>
+                            <button class="btn btn-submit col-2 mr-2 bg-red" type="submit">OK</button>
+                        </div>
+                    </div>
+                </div>
         </form>
+
         <script>
             // Set default date = today
             document.getElementById('date').valueAsDate = new Date();
 
-            // Keyboard listener
-            const displayValue = 111;
-            // Update display
-            function updateDisplay() {
-                const display = document.querySelector('.btn-screen');
-                display.value = 111;
-            }
+            // Switch role
+            const role = document.getElementById('role');
+            const roleInput = document.getElementById('role-input');
+            role.addEventListener('click', function () {
+                if (role.value == "咚") {
+                    role.value = "虎";
+                    roleInput.value = "虎";
+                    role.classList.remove('bg-blue');
+                    role.classList.add('bg-red');
+                } else {
+                    role.value = "咚";
+                    roleInput.value = "咚";
+                    role.classList.remove('bg-red');
+                    role.classList.add('bg-blue');
+                }
+                console.log(roleInput.value);
+            });
 
+            // Switch private/family
+            const private = document.getElementById('private');
+            const privateInput = document.getElementById('private-input');
+            private.addEventListener('click', function () {
+                if (private.value == "家庭") {
+                    private.value = "個人";
+                    privateInput.value = "個人";
+                    private.classList.remove('bg-orange');
+                    private.classList.add('bg-blue');
+                } else {
+                    private.value = "家庭";
+                    privateInput.value = "家庭";
+                    private.classList.remove('bg-blue');
+                    private.classList.add('bg-orange');
+                }
+                console.log(privateInput.value);
+            });
+
+            // Keyboard
             const keys = document.querySelector('.key');
-            keys.addEventListener('click', (event) => {
+            keys.addEventListener('touchstart', (event) => {
                 const { target } = event;
-                if (target.matches('button')) {
-                    const display = document.querySelector('.btn-screen');
-                    if (target.classList.contains('all-clear')) {
-                        display.value = 0;
-                        return;
-                    }
+                if (target.matches('.btn-num')) {
+                    const display = document.getElementById('num');
+                    // Backspace
                     if (target.classList.contains('back')) {
                         display.value = display.value.substring(0, display.value.length - 1);
+                        if (display.value.length == 0) {
+                            display.value = 0
+                        }
                         return;
                     }
-                    display.value = display.value + target.value;
+                    // Update display
+                    if (display.value == "0") {
+                        display.value = target.innerHTML;
+                    } else {
+                        display.value = display.value + target.innerHTML;
+                    }
                 }
             });
         </script>
