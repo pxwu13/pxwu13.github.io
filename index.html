@@ -202,7 +202,7 @@
         <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;"
             onload="if(typeof sent_redirect!='undefined'){window.location='index.html';}"></iframe>
         <!-- Form-->
-        <form onsubmit="sent_redirect=true" target="iframe_redirect"
+        <form onsubmit="return doSubmit()" target="iframe_redirect"
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdg8g9V9ypNBkhvMMH5LlQtrkW-91hVJZ_XoA8qhmyTib8luQ/formResponse"
             method="POST" class="px-3 pt-2">
             <!-- Divsion 1-->
@@ -332,12 +332,25 @@
 
             <!-- Div test-->
             <div class="row mb-2">
-                <input type="submit" class="btn btn-submit box col-3" value="OK" />
+                <input type="submit" class="btn btn-submit box col-3" value="OK" id="btn-submit" />
             </div>
         </form>
 
         <script>
-            // Test
+            // Btn-submit
+            var isSubmitted = false;
+            function doSubmit() {
+                if (!isSubmitted) {
+                    isSubmitted = true;
+                    sent_redirect = true;
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+
+            // Num-keyboard
             const num_input = document.getElementById('num-input');
             const num_label = document.getElementById('num-label');
 
@@ -401,13 +414,6 @@
 
             // Set default date = today
             document.getElementById('date').valueAsDate = new Date();
-
-            // Show all input on form
-            const show = document.getElementById('show');
-            show.addEventListener('click', function () {
-                console.log($('form').serialize());
-            });
-
         </script>
     </div>
 </body>
