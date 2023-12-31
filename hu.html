@@ -1,111 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>2024記帳</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap v5.2-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 
     <!--jQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 
-    <!-- import -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
-
+    <!-- CSS-->
     <style>
-        html {
-            padding: 1rem;
-            touch-action: manipulation;
+        .bg-orange {
+            background-color: #fec952;
         }
 
-        /* Project, Tag, Note button */
-        .btn-1 {
-            color: #666666;
-            background-color: #ebebeb;
-            border-radius: 1rem;
-            margin-top: 0.25rem;
-            margin-right: 0.25rem;
+        .bg-blue {
+            background-color: #47b7e0;
+        }
+
+        .bg-red {
+            background-color: #ff7473;
+        }
+
+        .bg-gray {
+            background-color: gray;
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .font-weight-bold {
             font-weight: bold;
-            padding: 0.25rem 0.5rem;
         }
 
-        /* Keyboard */
-        .calculator svg {
-            width: 2rem;
-            height: 2rem;
-            pointer-events: none;
-        }
-
-        .none {
+        /* radio-1 */
+        .radio-1 {
             display: none;
         }
 
-        .calculator {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 0.5rem;
-            padding: 0.5rem;
-            background-color: #292929;
+        .radio-1-1:checked+label {
+            background-color: #47b7e0;
+            font-weight: bold;
         }
 
-        .calculator-screen {
-            /*background-color: #f2f2f2;
-            color: #666666;
-            border: none;
-            padding-right: 1rem;
-            padding-left: 1rem;
-            font-size: 2rem;
-            grid-row: 1;
-            grid-column: 1 / 5;*/
-            text-align: right;
-            pointer-events: none;
+        .radio-1-1:not(:checked)+label {
+            display: none;
+        }
+
+        .radio-1-2:checked+label {
+            background-color: #ff7473;
+            font-weight: bold;
+        }
+
+        .radio-1-2:not(:checked)+label {
+            display: none;
+        }
+
+        /* radio-2 */
+        .radio-2 {
+            display: none;
+        }
+
+        .radio-2-1:checked+label {
+            background-color: #fec952;
+            font-weight: bold;
+        }
+
+        .radio-2-1:not(:checked)+label {
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        .radio-2-2:checked+label {
+            background-color: #47b7e0;
+            font-weight: bold;
+        }
+
+        .radio-2-2:not(:checked)+label {
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* radio-3 */
+        .radio-3 {
+            display: none;
+        }
+
+        .radio-3-1:checked+label {
+            background-color: #fec952;
+            font-weight: bold;
+        }
+
+        .radio-3-1:not(:checked)+label {
+            display: none;
+        }
+
+        .radio-3-2:checked+label {
+            background-color: #ff7473;
+            font-weight: bold;
+        }
+
+        .radio-3-2:not(:checked)+label {
+            display: none;
+        }
+
+        /* radio-2 */
+        .radio-5 {
+            display: none;
+        }
+
+        .radio-5:checked+label {
+            background-color: gray;
+            color: white;
+        }
+
+        .radio-5:not(:checked)+label {
+            background-color: #ffffff;
+            border: 0.0625rem solid gray;
+        }
+
+        .box {
+            border-color: black;
+            border-radius: 0.5rem;
+            border-width: 0.125rem;
+            border-style: solid;
+        }
+
+        .box-hearder {
+            border-color: black;
+            border-radius: 0.5rem 0.5rem 0 0;
+            border-width: 0.125rem;
+            border-style: solid;
+        }
+
+        .box-body {
+            border-color: black;
+            border-radius: 0 0 0.5rem 0.5rem;
+            border-width: 0 0.125rem 0.125rem 0.125rem;
+            border-style: solid;
+        }
+
+        .btn-comment {
+            margin-right: 0.25rem;
+            margin-bottom: 0.25rem;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .btn-back {
+            border: 0.0625rem solid black;
+            background-color: #47b7e0;
+            color: #ffffff;
+            font-weight: bold;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .btn-back:hover {
+            border: 0.0625rem solid black;
+            background-color: #ff7473;
+            color: #ffffff;
+            font-weight: bold;
         }
 
         .btn-num {
-            background-color: #292929;
-            color: #f2f2f2;
-            font-size: 2rem;
+            border: 0.0625rem solid black;
+            background-color: white;
+            font-weight: bold;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
 
-        .btn-num:hover,
-        .btn-num:active {
-            background-color: #212121;
-            color: #f2f2f2;
-            font-size: 2rem;
+        .btn-num:hover {
+            border: 0.0625rem solid black;
+            background-color: white;
+            color: gray;
+            font-weight: bold;
         }
 
-        .btn-func {
-            background-color: #292929;
-            color: #e0bc70;
-            font-size: 2rem;
-        }
-
-        .btn-func:hover,
-        .btn-func:active {
-            background-color: #212121;
-            color: #e0bc70;
-        }
-
-        .zero-sign {
-            grid-row: 4;
-            grid-column: 1 / 3;
-        }
-
-        .submit {
-            grid-row: 3 / 5;
-            grid-column: 4 / 5;
+        .btn-submit {
+            background-color: #ff7473;
+            color: white;
+            font-weight: bold;
         }
     </style>
+
+    <!-- Title-->
+    <title>2023記帳</title>
 </head>
 
 <body>
@@ -115,286 +207,218 @@
             onload="if(typeof sent_redirect!='undefined'){window.location='index.html';}"></iframe>
         <!-- Form-->
         <form onsubmit="return doSubmit()" target="iframe_redirect"
-            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSesS49q0SAiLKjHUzL8K62MlNs-af1-Nd8rtmsMkmWfdo4Fig/formResponse"
-            method="POST">
-            <!-- Date -->
-            <div class="row mb-1">
-                <div class="input-group">
-                    <button type="button" class="input-group-text btn-date-left" onclick="preDate()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                        </svg>
-                    </button>
-                    <input type="date" name="entry.336340770" class="form-control font-weight-bold pt-3" id="input-date" />
-                    <button type="button" class="input-group-text btn-date-right" onclick="nextDate()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                        </svg>
-                    </button>
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdg8g9V9ypNBkhvMMH5LlQtrkW-91hVJZ_XoA8qhmyTib8luQ/formResponse"
+            method="POST" class="px-3 pt-2">
+            <!-- Divsion 1-->
+            <div class="row mb-2">
+                <!-- Who paid entry.44147002-->
+                <div class="col-2 pe-3">
+                    <div class="row box">
+                        <input type="radio" name="entry.44147002" class="radio-1 radio-1-1" id="radio-1-1" value="咚"
+                            autocomplete="off" checked>
+                        <label for="radio-1-1" class="btn col">咚</label>
+                        <input type="radio" name="entry.44147002" class="radio-1 radio-1-2" id="radio-1-2" value="虎"
+                            autocomplete="off">
+                        <label for="radio-1-2" class="btn col">虎</label>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Project -->
-            <div class="row mb-1">
-                <div class="input-group">
-                    <span class="input-group-text">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-kanban-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
-                        </svg></span>
-                    <input type="text" name="entry.1200813851" class="form-control font-weight-bold" placeholder="項目"
-                        id="input-project" />
+                <!-- Expense/Income entry.136984385-->
+                <div class="col-8 px-3">
+                    <div class="row box">
+                        <input type="radio" name="entry.136984385" class="radio-2 radio-2-1" id="radio-2-1" value="支出"
+                            checked />
+                        <label for="radio-2-1" class="btn col-6">支出</label>
+                        <input type="radio" name="entry.136984385" class="radio-2 radio-2-2" id="radio-2-2"
+                            value="收入" />
+                        <label for="radio-2-2" class="btn col-6">收入</label>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">生活</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">住宅</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">醫保</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">娛樂</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">社交</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">工作</button>
-            </div>
-
-            <!-- Tag -->
-            <div class="row mb-1">
-                <div class="input-group">
-                    <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z" />
-                            <path
-                                d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z" />
-                        </svg></span>
-                    <input type="text" name="entry.1470084493" class="form-control font-weight-bold" placeholder="標籤"
-                        id="input-tag" />
-                </div>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">外食</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">買菜</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">管理費</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">水電費</button>
-            </div>
-
-            <!-- Note -->
-            <div class="row mb-1">
-                <div class="input-group">
-                    <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                        </svg></span>
-                    <input type="text" name="entry.1362389910" class="form-control font-weight-bold" placeholder="備註"
-                        id="input-note" />                        
-                    <input type="text" name="entry.1684593184" class="calculator-screen form-control font-weight-bold" id="input-num" />
-                </div>
-            </div>
-
-            <!-- Keyboard -->
-            <div class="row">
-                <div class="calculator col">
-                    <input type="text" name="entry.2020362744" style="display:none" id="input-who" value="Don" />
-                    <input type="text" name="entry.160380978" style="display:none" id="input-foi" value="家庭" />
-
-                    <button type="button" value="7" class="btn btn-num">7</button>
-                    <button type="button" value="8" class="btn btn-num ">8</button>
-                    <button type="button" value="9" class="btn btn-num ">9</button>
-                    <button type="button" value="who" class="btn btn-func btn-who">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-gender-male" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-gender-female none" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z" />
-                        </svg>
-                    </button>
-
-                    <button type="button" value="4" class="btn btn-num ">4</button>
-                    <button type="button" value="5" class="btn btn-num ">5</button>
-                    <button type="button" value="6" class="btn btn-num ">6</button>
-                    <button type="button" value="foi" class="btn btn-func btn-foi">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-house-door-fill" viewBox="0 0 16 16" id="svg-hd">
-                            <path
-                                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-person-circle none" viewBox="0 0 16 16" id="svg-pc">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                            <path fill-rule="evenodd"
-                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                        </svg></button>
-
-                    <button type="button" value="1" class="btn btn-num ">1</button>
-                    <button type="button" value="2" class="btn btn-num ">2</button>
-                    <button type="button" value="3" class="btn btn-num ">3</button>
-                    <button type="button" value="0" class="zero-sign btn btn-num ">0</button>
-                    <button type="button" class="back function btn btn-func" value="back"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-backspace-fill disabled" viewBox="0 0 16 16">
-                            <path
-                                d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z" />
-                        </svg></button>
-                    <button type="submit" class="submit btn btn-func" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                        </svg></button>
-                    <!-- Modal success alert -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body p-0">
-                                    <div class="alert alert-success m-0">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">✓ 新增記帳成功</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Family/Individual entry.339193861-->
+                <div class="col-2 ps-3">
+                    <div class="row box">
+                        <input type="radio" name="entry.339193861" class="radio-3 radio-3-1" id="radio-3-1" value="家庭"
+                            autocomplete="off" checked>
+                        <label for="radio-3-1" class="btn col">家</label>
+                        <input type="radio" name="entry.339193861" class="radio-3 radio-3-2" id="radio-3-2" value="個人"
+                            autocomplete="off">
+                        <label for="radio-3-2" class="btn col">個</label>
                     </div>
                 </div>
             </div>
+
+            <!-- Divsion 2 entry.962841591-->
+            <div class="mb-2">
+                <div class="row box">
+                    <input type="radio" name="entry.962841591" class="radio-2 radio-2-1" name="radio-4" id="radio-4-1"
+                        value="飲食" checked />
+                    <label for="radio-4-1" class="btn col-4">飲食</label>
+                    <input type="radio" name="entry.962841591" class="radio-2 radio-2-1" name="radio-4" id="radio-4-2"
+                        value="衣飾" />
+                    <label for="radio-4-2" class="btn col-4">衣飾</label>
+                    <input type="radio" name="entry.962841591" class="radio-2 radio-2-1" name="radio-4" id="radio-4-3"
+                        value="住行" />
+                    <label for="radio-4-3" class="btn col-4">住行</label>
+                    <input type="radio" name="entry.962841591" class="radio-2 radio-2-1" name="radio-4" id="radio-4-4"
+                        value="育樂" />
+                    <labelvs AB無糖 for="radio-4-4" class="btn col-4">育樂</label>
+                    <input type="radio" name="entry.962841591" class="radio-2 radio-2-1" name="radio-4" id="radio-4-5"
+                        value="社交" />
+                    <label for="radio-4-5" class="btn col-4">社交</label>
+                    <input type="radio" name="entry.962841591" class="radio-2 radio-2-1" name="radio-4" id="radio-4-6"
+                        value="其他" />
+                    <label for="radio-4-6" class="btn col-4">其他</label>
+                </div>
+            </div>
+
+            <!-- Divsion 3 entry.2034304089 entry.1550548858-->
+            <div class="row box-hearder">
+                <div class="input-group p-0">
+                    <input type="text" name="entry.2034304089" class="form-control font-weight-bold"
+                        placeholder="在此輸入備註" id="comment-input" />
+                    <input type="date" name="entry.1550548858" class="form-control font-weight-bold" id="date" />
+                </div>
+            </div>
+            <div class="row box-body mb-2 p-1 pb-0 comment-btns">
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-1" checked />
+                <label for="radio-5-1" class="btn btn-sm col-auto btn-comment">早餐</label>
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-2" />
+                <label for="radio-5-2" class="btn btn-sm col-auto btn-comment">午餐</label>
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-3" />
+                <label for="radio-5-3" class="btn btn-sm col-auto btn-comment">晚餐</label>
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-4" />
+                <label for="radio-5-4" class="btn btn-sm col-auto btn-comment">全聯</label>
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-5" />
+                <label for="radio-5-5" class="btn btn-sm col-auto btn-comment">加油</label>
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-6" />
+                <label for="radio-5-6" class="btn btn-sm col-auto btn-comment">薪資</label>
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-7" />
+                <label for="radio-5-7" class="btn btn-sm col-auto btn-comment">獎金</label>
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-8" />
+                <label for="radio-5-8" class="btn btn-sm col-auto btn-comment">Uber Eats</label>
+                <input type="radio" class="radio-5" name="radio-5" id="radio-5-9" />
+                <label for="radio-5-9" class="btn btn-sm col-auto btn-comment">熊貓</label>
+            </div>
+
+            <!-- Divsion 4 entry.2007259481-->
+            <div class="row box-hearder">
+                <div class="input-group p-0">
+                    <span class="input-group-text font-weight-bold">$</span>
+                    <input type="text" name="entry.2007259481" class="form-control font-weight-bold" placeholder="0"
+                        id="num-input" value="0" hidden />
+                    <label for="num-input" class="form-control" id="num-label">0</label>
+                </div>
+            </div>
+            <div class="row box-body bg-orange mb-2">
+                <div class="col-8 p-1 num-keyboard">
+                    <div class="row m-0 justify-content-around mb-1">
+                        <div class="btn btn-num col-3">7</div>
+                        <div class="btn btn-num col-3">8</div>
+                        <div class="btn btn-num col-3">9</div>
+                    </div>
+                    <div class="row m-0 justify-content-around mb-1">
+                        <div class="btn btn-num col-3">4</div>
+                        <div class="btn btn-num col-3">5</div>
+                        <div class="btn btn-num col-3">6</div>
+                    </div>
+                    <div class="row m-0 justify-content-around mb-1">
+                        <div class="btn btn-num col-3">1</div>
+                        <div class="btn btn-num col-3">2</div>
+                        <div class="btn btn-num col-3">3</div>
+                    </div>
+                    <div class="row m-0 justify-content-around">
+                        <div class="btn btn-num col-7">0</div>
+                        <div class="btn btn-back col-3 ">←</div>
+                    </div>
+                </div>
+                <div class="col-4">
+                </div>
+            </div>
+
+            <!-- Div test-->
+            <div class="row mb-2">
+                <input type="submit" class="btn btn-submit box col-3" value="OK" id="btn-submit" />
+            </div>
         </form>
+
+        <script>
+            // Btn-submit
+            var isSubmitted = false;
+            function doSubmit() {
+                if (!isSubmitted) {
+                    isSubmitted = true;
+                    sent_redirect = true;
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            // Num-keyboard
+            const num_input = document.getElementById('num-input');
+            const num_label = document.getElementById('num-label');
+
+            function updateNumInput(digit) {
+                if (num_input.value == 0) {
+                    num_input.value = digit;
+                } else {
+                    num_input.value = num_input.value + digit;
+                }
+                num_label.innerText = parseInt(num_input.value, 10).toLocaleString();
+            }
+
+            function backNumInput() {
+                num_input.value = num_input.value.substring(0, num_input.value.length - 1);
+                if (num_input.value.length == 0) {
+                    num_input.value = 0;
+                }
+                num_label.innerText = parseInt(num_input.value, 10).toLocaleString();
+            }
+
+            const num_keyboard = document.querySelector('.num-keyboard');
+            num_keyboard.addEventListener('click', (event) => {
+                const { target } = event;
+                if (target.matches('.btn-num')) {
+                    var digit = target.innerHTML;
+                    console.log(digit);
+                    updateNumInput(digit);
+                } else if (target.matches('.btn-back')) {
+                    backNumInput();
+                }
+            });
+
+            // Set radio-1 listener
+            const radio1s = document.querySelectorAll('.radio-1');
+            radio1s[0].addEventListener('click', function () {
+                radio1s[1].checked = true;
+            });
+            radio1s[1].addEventListener('click', function () {
+                radio1s[0].checked = true;
+            });
+
+            // Set radio-3 listener
+            const radio3s = document.querySelectorAll('.radio-3');
+            radio3s[0].addEventListener('click', function () {
+                radio3s[1].checked = true;
+            });
+            radio3s[1].addEventListener('click', function () {
+                radio3s[0].checked = true;
+            });
+
+            // Div 3 comment & date            
+            const comment_btns = document.querySelector('.comment-btns');
+            const commnet_input = document.getElementById('comment-input');
+            comment_btns.addEventListener('click', (event) => {
+                const { target } = event;
+                if (target.matches('.btn-comment')) {
+                    console.log(target.innerHTML);
+                    commnet_input.value = target.innerHTML;
+                }
+            });
+
+            // Set default date = today
+            document.getElementById('date').valueAsDate = new Date();
+        </script>
     </div>
-    <script>
-        // Input Date
-        function updateDate() {
-            document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
-        }
-
-        function preDate() {
-            var yesterday = document.getElementById('input-date').valueAsDate;
-            yesterday.setDate(yesterday.getDate() - 1);
-            document.getElementById('input-date').valueAsDate = yesterday;
-        }
-
-        function nextDate() {
-            var tomorrow = document.getElementById('input-date').valueAsDate;
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            document.getElementById('input-date').valueAsDate = tomorrow;
-        }
-
-        updateDate();
-
-    </script>
-
-    <script>
-        // Project
-        function updateProject(btn) {
-            const input_project = document.getElementById("input-project");
-            input_project.value = btn.innerHTML;
-        }
-
-        // Tag
-        function updateTag(btn) {
-            const input_tag = document.getElementById("input-tag");
-            input_tag.value = btn.innerHTML;
-        }
-    </script>
-
-    <script>
-        // Btn-submit
-        var isSubmitted = false;
-        function doSubmit() {
-            if (!isSubmitted) {
-                isSubmitted = true;
-                sent_redirect = true;
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
-
-    <script>
-        // Keyboard
-        const calculator = {
-            displayValue: '0'
-        };
-
-        function inputDigit(digit) {
-            const { displayValue } = calculator;
-            calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
-        }
-
-        function backDisplay() {
-            (calculator.displayValue.length == 1) ? calculator.displayValue = '0' : calculator.displayValue = calculator.displayValue.substring(0, calculator.displayValue.length - 1);
-        }
-
-        function updateDisplay() {
-            const display = document.getElementById('input-num');
-            display.value = calculator.displayValue;
-            console.log(display.value);
-        }
-
-        function updateDisplaWho() {
-            const input_foi = document.getElementById('input-who');
-            const svg_gm = document.querySelector('.bi-gender-male');
-            const svg_gf = document.querySelector('.bi-gender-female');
-            if (input_foi.value == "Don") {
-                input_foi.value = "Fanny";
-                svg_gm.classList.add("none");
-                svg_gf.classList.remove("none");
-            }
-            else {
-                input_foi.value = "Don";
-                svg_gf.classList.add("none");
-                svg_gm.classList.remove("none");
-            }
-        }
-
-        function updateDisplaFoi() {
-            const input_foi = document.getElementById('input-foi');
-            const svg_hd = document.querySelector('.bi-house-door-fill');
-            const svg_pc = document.querySelector('.bi-person-circle');
-            if (input_foi.value == "家庭") {
-                input_foi.value = "個人";
-                svg_hd.classList.add("none");
-                svg_pc.classList.remove("none");
-            }
-            else {
-                input_foi.value = "家庭";
-                svg_pc.classList.add("none");
-                svg_hd.classList.remove("none");
-            }
-        }
-
-        updateDisplay();
-
-        const keys = document.querySelector('.calculator');
-        keys.addEventListener('touchstart', (event) => {
-            const { target } = event;
-            if (!target.matches('button')) {
-                return;
-            }
-
-            if (target.classList.contains('back')) {
-                backDisplay();
-                updateDisplay();
-                return;
-            }
-
-            if (target.classList.contains('btn-who')) {
-                updateDisplaWho();
-                return;
-            }
-
-            if (target.classList.contains('btn-foi')) {
-                updateDisplaFoi();
-                return;
-            }
-
-            inputDigit(target.value);
-            updateDisplay();
-        }); 
-    </script>
 </body>
 
 </html>
