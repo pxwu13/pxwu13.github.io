@@ -35,6 +35,7 @@
             border-radius: 1rem;
             margin-top: 0.25rem;
             margin-right: 0.25rem;
+            font-weight: bold;
         }
 
         /* Keyboard */
@@ -51,8 +52,8 @@
         .calculator {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 1rem;
-            padding: 1rem;
+            grid-gap: 0.5rem;
+            padding: 0.5rem;
             background-color: #292929;
         }
 
@@ -118,7 +119,21 @@
             <!-- Date -->
             <div class="row mb-1">
                 <div class="input-group">
-                    <input type="date" name="entry.336340770" class="form-control font-weight-bold" id="input-date" />
+                    <button type="button" class="input-group-text btn-date-left" onclick="preDate()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                            <path
+                                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                        </svg>
+                    </button>
+                    <input type="date" name="entry.336340770" class="form-control font-weight-bold" style="vertical-align: middle;" id="input-date" />
+                    <button type="button" class="input-group-text btn-date-right" onclick="nextDate()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path
+                                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                        </svg>
+                    </button>
                 </div>
             </div>
 
@@ -162,7 +177,7 @@
             </div>
 
             <!-- Note -->
-            <div class="row">
+            <div class="row mb-1">
                 <div class="input-group">
                     <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
