@@ -113,10 +113,17 @@
         <!-- Submit redirect-->
         <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;"
             onload="if(typeof sent_redirect!='undefined'){window.location='index.html';}"></iframe>
+
+        <!-- Banner -->
+        <div class="row justify-content-center">
+            <h5>我期待的不是雪</h5>
+        </div>
+
         <!-- Form-->
         <form onsubmit="return doSubmit()" target="iframe_redirect"
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSesS49q0SAiLKjHUzL8K62MlNs-af1-Nd8rtmsMkmWfdo4Fig/formResponse"
             method="POST">
+
             <!-- Date -->
             <div class="row mb-1">
                 <div class="input-group">
@@ -156,6 +163,7 @@
                 <button type="button" class="btn btn-1" onclick="updateProject(this)">娛樂</button>
                 <button type="button" class="btn btn-1" onclick="updateProject(this)">社交</button>
                 <button type="button" class="btn btn-1" onclick="updateProject(this)">工作</button>
+                <button type="button" class="btn btn-1" onclick="updateProject(this)">專案</button>
             </div>
 
             <!-- Tag -->
@@ -186,17 +194,20 @@
                                 d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
                         </svg></span>
                     <input type="text" name="entry.1362389910" class="form-control font-weight-bold" placeholder="備註"
-                        id="input-note" />                        
-                    <input type="text" name="entry.1684593184" class="calculator-screen form-control font-weight-bold" id="input-num" />
+                        id="input-note" />
+                    <input type="text" name="entry.1684593184" class="calculator-screen form-control font-weight-bold"
+                        id="input-num" />
                 </div>
             </div>
 
             <!-- Keyboard -->
             <div class="row">
                 <div class="calculator col">
+                    <!-- input-who / input-foi (display:none) -->
                     <input type="text" name="entry.2020362744" style="display:none" id="input-who" value="Don" />
                     <input type="text" name="entry.160380978" style="display:none" id="input-foi" value="家庭" />
 
+                    <!-- Button 789 / who -->
                     <button type="button" value="7" class="btn btn-num">7</button>
                     <button type="button" value="8" class="btn btn-num ">8</button>
                     <button type="button" value="9" class="btn btn-num ">9</button>
@@ -213,6 +224,7 @@
                         </svg>
                     </button>
 
+                    <!-- Button 456 / foi -->
                     <button type="button" value="4" class="btn btn-num ">4</button>
                     <button type="button" value="5" class="btn btn-num ">5</button>
                     <button type="button" value="6" class="btn btn-num ">6</button>
@@ -229,9 +241,12 @@
                                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                         </svg></button>
 
+                    <!-- Button 123 -->
                     <button type="button" value="1" class="btn btn-num ">1</button>
                     <button type="button" value="2" class="btn btn-num ">2</button>
                     <button type="button" value="3" class="btn btn-num ">3</button>
+
+                    <!-- Button 0 / back / submit -->
                     <button type="button" value="0" class="zero-sign btn btn-num ">0</button>
                     <button type="button" class="back function btn btn-func" value="back"><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -246,6 +261,7 @@
                             <path
                                 d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
                         </svg></button>
+
                     <!-- Modal success alert -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -264,7 +280,7 @@
         </form>
     </div>
     <script>
-        // Input Date
+        // Date
         function updateDate() {
             document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
         }
@@ -282,7 +298,6 @@
         }
 
         updateDate();
-
     </script>
 
     <script>
@@ -370,7 +385,7 @@
 
         const keys = document.querySelector('.calculator');
         // check touchstart or click
-        const clickEvent = (function() {
+        const clickEvent = (function () {
             if ('ontouchstart' in keys === true)
                 return 'touchstart';
             else
