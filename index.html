@@ -122,13 +122,15 @@
                     <input type="text" name="entry.1200813851" class="form-control fw-bold" placeholder="項目..."
                         id="input-project" />
                 </div>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">生活</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">住宅</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">醫保</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">娛樂</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">社交</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">工作</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">專案</button>
+                <div id="buttons-project">
+                    <button type="button" class="btn btn-1" onclick="updateProject(this)">生活</button>
+                    <button type="button" class="btn btn-1" onclick="updateProject(this)">住宅</button>
+                    <button type="button" class="btn btn-1" onclick="updateProject(this)">醫保</button>
+                    <button type="button" class="btn btn-1" onclick="updateProject(this)">娛樂</button>
+                    <button type="button" class="btn btn-1" onclick="updateProject(this)">社交</button>
+                    <button type="button" class="btn btn-1" onclick="updateProject(this)">工作</button>
+                    <button type="button" class="btn btn-1" onclick="updateProject(this)">專案</button>
+                </div>
             </div>
 
             <!-- Tag -->
@@ -138,14 +140,8 @@
                     <input type="text" name="entry.1470084493" class="form-control fw-bold" placeholder="標籤..."
                         id="input-tag" />
                 </div>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">外食</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">買菜</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">管理費</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">水電費</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">外食</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">買菜</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">管理費</button>
-                <button type="button" class="btn btn-1" onclick="updateTag(this)">水電費</button>
+                <div id="buttons-tag">
+                </div>
             </div>
 
             <!-- Note -->
@@ -240,6 +236,44 @@
         function updateProject(btn) {
             const input_project = document.getElementById("input-project");
             input_project.value = btn.innerHTML;
+            addButttons(btn.innerHTML);
+        }
+
+        // Add tag buttons
+        function addButttons(projName) {
+            let tagsName = [];
+            switch (projName) {
+                case '生活':
+                    tagsName = ['買菜', '外食', '交通', '管理費', '水費', '電費', '天然氣費', '網路費', '通信費']
+                    break;
+                case '住宅':
+                    tagsName = ['地租', '房屋稅']
+                    break;
+                case '醫保':
+                    tagsName = ['看醫生', '房屋稅']
+                    break;
+                case '娛樂':
+                    tagsName = ['飲料', '零食', '遊戲']
+                    break;
+                case '社交':
+                    tagsName = ['咖啡', '聚餐', '送禮']
+                    break;
+                case '工作':
+                    tagsName = ['薪資', '全勤', '獎金', '補助', '其他']
+                    break;
+                case '專案':
+                    tagsName = ['結婚']
+                    break;
+                default:
+                    break;
+            }
+            let buttonsTag = document.getElementById("buttons-tag");
+            buttonsTag.textContent = '';
+            for (let i = 0; i < tagsName.length; i++) {
+                let span = document.createElement('span');
+                span.innerHTML = '<button type="button" class="btn btn-1" onclick="updateTag(this)">' + tagsName[i] + '</button>';
+                buttonsTag.appendChild(span);
+            }
         }
 
         // Tag
