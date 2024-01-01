@@ -5,13 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>2024記帳</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!--jQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <!-- import -->
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
@@ -22,9 +19,12 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
 
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- CSS -->
     <style>
         html {
-            padding: 1rem;
             touch-action: manipulation;
         }
 
@@ -36,13 +36,11 @@
             margin-top: 0.25rem;
             margin-right: 0.25rem;
             font-weight: bold;
-            padding: 0.25rem 0.5rem;
+            padding: 0.1rem 0.6rem;
         }
 
         /* Keyboard */
-        .calculator svg {
-            width: 2rem;
-            height: 2rem;
+        .calculator i {
             pointer-events: none;
         }
 
@@ -59,49 +57,31 @@
         }
 
         .calculator-screen {
-            /*background-color: #f2f2f2;
-            color: #666666;
-            border: none;
-            padding-right: 1rem;
-            padding-left: 1rem;
-            font-size: 2rem;
-            grid-row: 1;
-            grid-column: 1 / 5;*/
             text-align: right;
             pointer-events: none;
         }
 
-        .btn-num {
+        .btn-num,
+        .btn-num:hover {
             background-color: #292929;
             color: #f2f2f2;
-            font-size: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        .btn-num:hover,
-        .btn-num:active {
-            background-color: #212121;
-            color: #f2f2f2;
-            font-size: 2rem;
-        }
-
-        .btn-func {
+        .btn-func,
+        .btn-func:hover {
             background-color: #292929;
             color: #e0bc70;
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
-        .btn-func:hover,
-        .btn-func:active {
-            background-color: #212121;
-            color: #e0bc70;
-        }
-
-        .zero-sign {
+        .btn-zero {
             grid-row: 4;
             grid-column: 1 / 3;
         }
 
-        .submit {
+        .btn-submit {
             grid-row: 3 / 5;
             grid-column: 4 / 5;
         }
@@ -115,9 +95,7 @@
             onload="if(typeof sent_redirect!='undefined'){window.location='index.html';}"></iframe>
 
         <!-- Banner -->
-        <div class="row justify-content-center">
-            <h5>我期待的不是雪</h5>
-        </div>
+        <h5 class="text-center my-1">我期待的不是雪</h5>
 
         <!-- Form-->
         <form onsubmit="return doSubmit()" target="iframe_redirect"
@@ -125,36 +103,23 @@
             method="POST">
 
             <!-- Date -->
-            <div class="row mb-1">
+            <div class="mb-1">
                 <div class="input-group">
                     <button type="button" class="input-group-text btn-date-left" onclick="preDate()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                        </svg>
+                        <i class="bi bi-caret-left-fill"></i>
                     </button>
-                    <input type="date" name="entry.336340770" class="form-control font-weight-bold" id="input-date" />
+                    <input type="date" name="entry.336340770" class="form-control fw-bold" id="input-date" />
                     <button type="button" class="input-group-text btn-date-right" onclick="nextDate()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                        </svg>
+                        <i class="bi bi-caret-right-fill"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Project -->
-            <div class="row mb-1">
+            <div class="mb-2">
                 <div class="input-group">
-                    <span class="input-group-text">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-kanban-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
-                        </svg></span>
-                    <input type="text" name="entry.1200813851" class="form-control font-weight-bold" placeholder="項目"
+                    <span class="input-group-text"><i class="bi bi-kanban-fill"></i></span>
+                    <input type="text" name="entry.1200813851" class="form-control fw-bold" placeholder="項目"
                         id="input-project" />
                 </div>
                 <button type="button" class="btn btn-1" onclick="updateProject(this)">生活</button>
@@ -167,18 +132,16 @@
             </div>
 
             <!-- Tag -->
-            <div class="row mb-1">
+            <div class="mb-2">
                 <div class="input-group">
-                    <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z" />
-                            <path
-                                d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z" />
-                        </svg></span>
-                    <input type="text" name="entry.1470084493" class="form-control font-weight-bold" placeholder="標籤"
+                    <span class="input-group-text"><i class="bi bi-bookmark-fill"></i></span>
+                    <input type="text" name="entry.1470084493" class="form-control fw-bold" placeholder="標籤"
                         id="input-tag" />
                 </div>
+                <button type="button" class="btn btn-1" onclick="updateTag(this)">外食</button>
+                <button type="button" class="btn btn-1" onclick="updateTag(this)">買菜</button>
+                <button type="button" class="btn btn-1" onclick="updateTag(this)">管理費</button>
+                <button type="button" class="btn btn-1" onclick="updateTag(this)">水電費</button>
                 <button type="button" class="btn btn-1" onclick="updateTag(this)">外食</button>
                 <button type="button" class="btn btn-1" onclick="updateTag(this)">買菜</button>
                 <button type="button" class="btn btn-1" onclick="updateTag(this)">管理費</button>
@@ -186,16 +149,12 @@
             </div>
 
             <!-- Note -->
-            <div class="row mb-1">
+            <div class="mb-2">
                 <div class="input-group">
-                    <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                        </svg></span>
-                    <input type="text" name="entry.1362389910" class="form-control font-weight-bold" placeholder="備註"
+                    <span class="input-group-text"><i class="bi bi-file-earmark-text-fill"></i></span>
+                    <input type="text" name="entry.1362389910" class="form-control fw-bold" placeholder="備註"
                         id="input-note" />
-                    <input type="text" name="entry.1684593184" class="calculator-screen form-control font-weight-bold"
+                    <input type="text" name="entry.1684593184" class="calculator-screen form-control fw-bold"
                         id="input-num" />
                 </div>
             </div>
@@ -209,19 +168,11 @@
 
                     <!-- Button 789 / who -->
                     <button type="button" value="7" class="btn btn-num">7</button>
-                    <button type="button" value="8" class="btn btn-num ">8</button>
-                    <button type="button" value="9" class="btn btn-num ">9</button>
+                    <button type="button" value="8" class="btn btn-num">8</button>
+                    <button type="button" value="9" class="btn btn-num">9</button>
                     <button type="button" value="who" class="btn btn-func btn-who">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-gender-male" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-gender-female none" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z" />
-                        </svg>
+                        <i class="bi bi-gender-male"></i>
+                        <i class="bi bi-gender-female none"></i>
                     </button>
 
                     <!-- Button 456 / foi -->
@@ -229,17 +180,9 @@
                     <button type="button" value="5" class="btn btn-num ">5</button>
                     <button type="button" value="6" class="btn btn-num ">6</button>
                     <button type="button" value="foi" class="btn btn-func btn-foi">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-house-door-fill" viewBox="0 0 16 16" id="svg-hd">
-                            <path
-                                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-person-circle none" viewBox="0 0 16 16" id="svg-pc">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                            <path fill-rule="evenodd"
-                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                        </svg></button>
+                        <i class="bi bi-house-door-fill"></i>
+                        <i class="bi bi-person-circle none"></i>
+                    </button>
 
                     <!-- Button 123 -->
                     <button type="button" value="1" class="btn btn-num ">1</button>
@@ -247,20 +190,12 @@
                     <button type="button" value="3" class="btn btn-num ">3</button>
 
                     <!-- Button 0 / back / submit -->
-                    <button type="button" value="0" class="zero-sign btn btn-num ">0</button>
-                    <button type="button" class="back function btn btn-func" value="back"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-backspace-fill disabled" viewBox="0 0 16 16">
-                            <path
-                                d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z" />
-                        </svg></button>
-                    <button type="submit" class="submit btn btn-func" data-bs-toggle="modal"
+                    <button type="button" value="0" class="btn-zero btn btn-num ">0</button>
+                    <button type="button" class="back function btn btn-func" value="back">
+                        <i class="bi bi-backspace-fill"></i></button>
+                    <button type="submit" class="btn btn-submit btn-func" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                        </svg></button>
+                        <i class="bi bi-check-lg"></i></button>
 
                     <!-- Modal success alert -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
