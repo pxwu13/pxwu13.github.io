@@ -160,8 +160,7 @@
             <!-- Keyboard -->
             <div class="row">
                 <div class="calculator">
-                    <input type="text" name="entry.1684593184" class="calculator-screen form-control"
-                        id="input-num" />
+                    <input type="text" name="entry.1684593184" class="calculator-screen form-control" id="input-num" />
                     <!-- input-who / input-foi (display:none) -->
                     <input type="text" name="entry.2020362744" style="display:none" id="input-who" value="Don" />
                     <input type="text" name="entry.160380978" style="display:none" id="input-foi" value="家庭" />
@@ -248,25 +247,25 @@
             let tagsName = [];
             switch (projName) {
                 case '生活':
-                    tagsName = ['買菜', '外食', '交通', '管理費', '水費', '電費', '天然氣費', '網路費', '通信費']
+                    tagsName = ['買菜', '外食', '交通', '水費', '電費', '天然氣費']
                     break;
                 case '住宅':
                     tagsName = ['地租', '房屋稅']
                     break;
                 case '醫保':
-                    tagsName = ['看醫生', '房屋稅']
+                    tagsName = ['醫院', '儲蓄險', '所得稅']
                     break;
                 case '娛樂':
                     tagsName = ['飲料', '零食', '遊戲']
                     break;
                 case '社交':
-                    tagsName = ['咖啡', '聚餐', '送禮']
+                    tagsName = ['咖啡', '聚餐', '送禮', '虎家']
                     break;
                 case '工作':
-                    tagsName = ['薪資', '全勤', '獎金', '補助', '其他']
+                    tagsName = ['薪資', '獎金', '企客', '補助', '其他']
                     break;
                 case '專案':
-                    tagsName = ['結婚']
+                    tagsName = ['結婚', '汽車']
                     break;
                 default:
                     break;
@@ -292,6 +291,9 @@
         var isSubmitted = false;
         function doSubmit() {
             if (!isSubmitted) {
+                const input_tag = document.getElementById("input-tag");
+                if (input_tag.value == '')
+                    input_tag.value = ' ';
                 isSubmitted = true;
                 sent_redirect = true;
                 return true;
