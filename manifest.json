@@ -1,12 +1,12 @@
 {
-  "name": "Let's Write",
-  "short_name": "Let's Write",
-  "description": "記帳YA",
+  "name": "2024記帳",
+  "short_name": "2024記帳",
+  "description": "2024記帳",
   "start_url": "./?utm_source=PWA&utm_medium=home_screen&utm_campaign=pwa",
   "id": "/?utm_source=PWA&utm_medium=home_screen&utm_campaign=pwa",
   "display": "standalone",
   "background_color": "#FAFAFA",
-  "theme_color": "#00A7E5",
+  "theme_color": "#FAFAFA",
   "orientation": "portrait-primary",
   "icons": [
     {
