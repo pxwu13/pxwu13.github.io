@@ -4,12 +4,12 @@
     "theme_color": "#FF8000",
     "icons": [
         {
-            "src": "hu.png",
+            "src": "logo/128.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "hu.png",
+            "src": "logo/512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
