@@ -35,15 +35,27 @@
             touch-action: manipulation;
         }
 
+        .container {            
+            background-color: #f7f7f7;
+        }
+
         /* Project, Tag, Note button */
         .btn-1 {
-            color: #666666;
-            background-color: #ebebeb;
-            border-radius: 1rem;
-            margin-top: 0.25rem;
-            margin-right: 0.2rem;
+            color: #262626;
+            background-color: #FFFFFF;
+            border-color: #262626;
+            border-style: none;
+            border-radius: 0.3rem;
             font-weight: bold;
             padding: 0.1rem 0.6rem;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 0.3rem;
+            padding: 1rem 1rem;
+            background-color: #f7f7f7;
         }
 
         /* Keyboard */
@@ -58,16 +70,18 @@
         .calculator {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 0rem;
+            grid-gap: 0.3rem;
             padding: 1rem 1rem;
-            background-color: #292929;
+            background-color: #ffffff;
         }
 
         .calculator-screen {
             text-align: right;
             font-weight: bold;
             font-size: 2rem;
-            color: #666666;
+            color: #262626;
+            background-color: #f7f7f7;
+            border-style: none;
             pointer-events: none;
             grid-row: 1;
             grid-column: 1 / 5;
@@ -75,16 +89,17 @@
 
         .btn-num,
         .btn-num:hover {
-            background-color: #292929;
-            color: #f2f2f2;
+            background-color: #FFFFFF;
+            color: #262626;
+            border-color: #eeeeee;
             font-size: 1.5rem;
             font-weight: bold;
         }
 
         .btn-func,
         .btn-func:hover {
-            background-color: #292929;
-            color: #e0bc70;
+            background-color: #ffd632;
+            color: #262626;
             font-size: 1.5rem;
         }
 
@@ -106,16 +121,16 @@
         <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;"
             onload="if(typeof sent_redirect!='undefined'){window.location='index.html';}"></iframe>
 
-        <!-- Banner -->
-        <!-- <h5 class="text-center my-1 fw-bold">　</h5> -->
-
+        <!-- Banner 
+        <h5 class="text-center my-1 fw-bold">那我就不是很🐯氣囉</h5>
+-->
         <!-- Form-->
         <form onsubmit="return doSubmit()" target="iframe_redirect"
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSesS49q0SAiLKjHUzL8K62MlNs-af1-Nd8rtmsMkmWfdo4Fig/formResponse"
             method="POST">
 
             <!-- Date -->
-            <div class="mb-1 mt-5">
+            <div class="mb-1 pt-5">
                 <div class="input-group">
                     <button type="button" class="input-group-text btn-date-left" onclick="preDate()">
                         <i class="bi bi-caret-left-fill"></i>
@@ -128,8 +143,8 @@
             </div>
 
             <!-- Project -->
-            <div class="mb-2">
-                <div class="input-group">
+            <div class="mb-2 btn-grid">
+                <div class="input-group none">
                     <span class="input-group-text"><i class="bi bi-kanban-fill"></i></span>
                     <input type="text" name="entry.1200813851" class="form-control fw-bold" placeholder="項目..."
                         id="input-project" />
@@ -144,7 +159,7 @@
 
             <!-- Tag -->
             <div class="mb-2">
-                <div class="input-group">
+                <div class="input-group none">
                     <span class="input-group-text"><i class="bi bi-bookmark-fill"></i></span>
                     <input type="text" name="entry.1470084493" class="form-control fw-bold" placeholder="標籤..."
                         id="input-tag" />
