@@ -197,15 +197,16 @@
                         <i class="bi bi-person-circle none"></i>
                     </button>
 
-                    <!-- Button 0 -->
+                    <!-- Button 0 
+                    <label class="btn btn-num" for="input-date" id="label-input"><i class="bi-calendar"></i></label>-->
                     <button type="button" value="0" class="btn-zero btn btn-num ">0</button>
 
-                    <label class="btn btn-num" for="input-date" id="label-input"><i class="bi-calendar"></i></label>
-                    <input type="date" name="entry.336340770" class="none" id="input-date" />
+                    <input type="date" name="entry.336340770" class="btn btn-num" id="input-date" />
 
                     <button type="submit" class="btn btn-func" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="bi bi-check-lg"></i>
                     </button>
+                    
 
                     <!-- Modal success alert -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -224,12 +225,12 @@
             </div>
         </form>
     </div>
-    <script>
+    <script>/*
         const button = document.getElementById('label-input');
         button.addEventListener('click', (event) => {
             document.getElementById('input-date').showPicker();
             console.log(document.getElementById('input-date').value);
-        });
+        });*/
         // Date
         function updateDate() {
             document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
