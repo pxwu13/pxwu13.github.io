@@ -199,7 +199,10 @@
 
                     <!-- Button 0 -->
                     <button type="button" value="0" class="btn-zero btn btn-num ">0</button>
-                    <input type="date" name="entry.336340770" class="btn btn-num" id="input-date" />
+
+                    <label class="btn btn-num" for="input-date" id="label-input"><i class="bi-calendar"></i></label>
+                    <input type="date" name="entry.336340770" class="none" id="input-date" />
+
                     <button type="submit" class="btn btn-func" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="bi bi-check-lg"></i>
                     </button>
@@ -222,20 +225,11 @@
         </form>
     </div>
     <script>
-        const button = document.getElementById("btn-date");
-        const dateInput = document.getElementById("input-date");
-
-        button.addEventListener("click", () => {
-            try {
-                dateInput.showPicker();
-                // A date picker is shown.
-            } catch (error) {
-                // Use external library when this fails.
-            }
+        const button = document.getElementById('label-input');
+        button.addEventListener('click', (event) => {
+            document.getElementById('input-date').showPicker();
+            console.log(document.getElementById('input-date').value);
         });
-    </script>
-
-    <script>
         // Date
         function updateDate() {
             document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
