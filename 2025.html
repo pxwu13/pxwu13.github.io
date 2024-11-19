@@ -28,6 +28,8 @@
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 
     <!-- CSS -->
     <style>
@@ -110,6 +112,17 @@
 
         .btn-zero {
             grid-column: 1 / 3;
+        }
+
+        .btn-date {
+            background-color: #FFFFFF;
+            border-color: #eeeeee;
+            grid-column: 3 / 4;
+            grid-row: 5 / 6;
+        }
+
+        .transparent {
+            opacity: 0;
         }
     </style>
 </head>
@@ -200,9 +213,11 @@
                     <!-- Button 0 -->
                     <button type="button" value="0" class="btn-zero btn btn-num ">0</button>
 
-                    <button type="button" class="btn btn-num btn-date" id="btn-date">Date</button>
-                    <input type="date" name="entry.336340770" class="btn btn-func none" id="input-date" />
+                    <i class="bi bi-calendar btn btn-num btn-date"></i>
+                    <input type="button" class="btn-date transparent" id="input-date" />
 
+                    <!-- <input type="date" name="entry.336340770" class="btn btn-func none" id="input-date" />
+                -->
                     <button type="submit" class="btn btn-func" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="bi bi-check-circle"></i>
                     </button>
@@ -226,6 +241,10 @@
     </div>
     <script>
         // Date
+        $(function () {
+            $("#input-date").datepicker();
+        });
+
         function updateDate() {
             document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
         }
@@ -394,13 +413,6 @@
 
             if (target.classList.contains('btn-foi')) {
                 updateDisplaFoi();
-                return;
-            }
-            
-            if (target.classList.contains('btn-date')) {
-                const input_date = document.getElementById('input-date');
-                input_date.showPicker();
-                console.log(input_date.value);
                 return;
             }
 
