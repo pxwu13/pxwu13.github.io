@@ -241,9 +241,6 @@
     </div>
     <script>
         // Date
-        $(function () {
-            $("#input-date").datepicker();
-        });
 
         function updateDate() {
             document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
@@ -396,6 +393,11 @@
         // check touchstart or click
         keys.addEventListener(clickEvent, (event) => {
             const { target } = event;
+            if (target.classList.contains('btn-date')) {
+                $("#input-date").datepicker();
+                console.log(target.value);
+            }
+
             if (!target.matches('button')) {
                 return;
             }
