@@ -53,7 +53,8 @@
             border-style: none;
             border-radius: 0.25rem;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            width: 100%;
         }
 
         .btn-grid {
@@ -134,16 +135,13 @@
         <iframe name="iframe_redirect" id="iframe_redirect" style="display:none;"
             onload="if(typeof sent_redirect!='undefined'){window.location='index.html';}"></iframe>
 
-        <!-- Banner 
-        <h5 class="text-center my-1 fw-bold">那我就不是很🐯氣囉</h5>
--->
         <!-- Form-->
         <form onsubmit="return doSubmit()" target="iframe_redirect"
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSesS49q0SAiLKjHUzL8K62MlNs-af1-Nd8rtmsMkmWfdo4Fig/formResponse"
             method="POST">
 
             <!-- Project -->
-            <div class="mb-2 btn-grid">
+            <div class="btn-grid mt-5">
                 <div class="input-group none">
                     <span class="input-group-text"><i class="bi bi-kanban-fill"></i></span>
                     <input type="text" name="entry.1200813851" class="form-control fw-bold" placeholder="項目..."
@@ -164,7 +162,7 @@
                     <input type="text" name="entry.1470084493" class="form-control fw-bold" placeholder="標籤..."
                         id="input-tag" />
                 </div>
-                <div id="buttons-tag">
+                <div id="buttons-tag" class="btn-grid">
                 </div>
             </div>
 
@@ -245,18 +243,6 @@
 
         function updateDate() {
             document.getElementById('input-date').value = new Date().toISOString().split('T')[0];
-        }
-
-        function preDate() {
-            var yesterday = document.getElementById('input-date').valueAsDate;
-            yesterday.setDate(yesterday.getDate() - 1);
-            document.getElementById('input-date').valueAsDate = yesterday;
-        }
-
-        function nextDate() {
-            var tomorrow = document.getElementById('input-date').valueAsDate;
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            document.getElementById('input-date').valueAsDate = tomorrow;
         }
 
         updateDate();
@@ -394,10 +380,6 @@
         // check touchstart or click
         keys.addEventListener(clickEvent, (event) => {
             const { target } = event;
-            if (target.classList.contains('btn-date')) {
-                //$("#input-date").datepicker();
-                console.log(target.value);
-            }
 
             if (!target.matches('button')) {
                 return;
