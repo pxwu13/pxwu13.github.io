@@ -35,6 +35,10 @@
             touch-action: manipulation;
         }
 
+        body {            
+            background-color: #f7f7f7;
+        }
+
         .container {            
             background-color: #f7f7f7;
         }
@@ -45,7 +49,7 @@
             background-color: #FFFFFF;
             border-color: #262626;
             border-style: none;
-            border-radius: 0.3rem;
+            border-radius: 0.25rem;
             font-weight: bold;
             font-size: 1.5rem;
         }
@@ -53,8 +57,8 @@
         .btn-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-gap: 0.3rem;
-            padding: 1rem 1rem;
+            grid-gap: 0.25rem;
+            padding: 1rem 0.25rem;
             background-color: #f7f7f7;
         }
 
@@ -71,7 +75,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 0.5rem;
-            padding: 1.3rem;
+            padding: 1rem;
             background-color: #ffffff;
         }
 
@@ -179,7 +183,7 @@
 
             <!-- Keyboard -->
             <div class="row">
-                <div class="calculator position-fixed bottom-0 start-0 pb-4">
+                <div class="calculator position-fixed bottom-0 start-0">
                     <input type="text" name="entry.1684593184" class="calculator-screen form-control" id="input-num" />
                     <!-- input-who / input-foi (display:none) -->
                     <input type="text" name="entry.2020362744" style="display:none" id="input-who" value="Don" />
