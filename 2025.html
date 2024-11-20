@@ -95,6 +95,17 @@
             margin-bottom: 0.5rem;
         }
 
+        .input-note {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #262626;
+            background-color: #f7f7f7;
+            border-style: none;
+            grid-row: 1;
+            grid-column: 1 / 4;
+            margin-bottom: 0.5rem;
+        }
+
         .btn-num,
         .btn-num:hover {
             background-color: #FFFFFF;
@@ -174,7 +185,7 @@
             <div class="mb-2">
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-file-earmark-text-fill"></i></span>
-                    <input type="text" name="entry.1362389910" class="form-control fw-bold" placeholder="備註..."
+                    <input type="text" name="entry.1362389910" class="form-control fw-bold" placeholder="添加備註"
                         id="input-note" />
                 </div>
             </div>
@@ -183,6 +194,8 @@
             <div class="row">
                 <div class="calculator position-fixed bottom-0 start-0">
                     <input type="text" name="entry.1684593184" class="calculator-screen form-control" id="input-num" />
+                    <input type="text" name="entry.1362389910" class="input-note form-control fw-bold" placeholder="備註..."
+                        id="input-note" />
                     <!-- input-who / input-foi (display:none) -->
                     <input type="text" name="entry.2020362744" style="display:none" id="input-who" value="Don" />
                     <input type="text" name="entry.160380978" style="display:none" id="input-foi" value="家庭" />
@@ -384,6 +397,10 @@
         // check touchstart or click
         keys.addEventListener(clickEvent, (event) => {
             const { target } = event;
+            if (target.classList.contains('input-note')) {
+                console.log('note');
+                return;
+            }
 
             if (!target.matches('button')) {
                 return;
