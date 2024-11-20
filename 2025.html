@@ -52,9 +52,25 @@
             width: 100%;
         }
 
-        .btn-grid {
+        .btn-1:hover {
+            background-color: #FFFFFF;
+            border-width: 0.125rem;
+            border-color: #ffd632;
+            border-style: solid;
+        }
+
+        .grid-category {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-gap: 0.5rem;
+            padding: 1rem 0.5rem;
+            background-color: #f7f7f7;
+            margin-top: 6rem;
+        }
+
+        .grid-tag {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             grid-gap: 0.5rem;
             padding: 1rem 0.5rem;
             background-color: #f7f7f7;
@@ -147,12 +163,8 @@
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSesS49q0SAiLKjHUzL8K62MlNs-af1-Nd8rtmsMkmWfdo4Fig/formResponse"
             method="POST">
 
-            <div class="mt-5">
-                <span class="transparent">1</span>
-            </div>
-            
             <!-- Project -->
-            <div class="btn-grid mt-5">
+            <div class="grid-category">
                 <div class="input-group none">
                     <span class="input-group-text"><i class="bi bi-kanban-fill"></i></span>
                     <input type="text" name="entry.1200813851" class="form-control fw-bold" placeholder="項目..."
@@ -173,7 +185,7 @@
                     <input type="text" name="entry.1470084493" class="form-control fw-bold" placeholder="標籤..."
                         id="input-tag" />
                 </div>
-                <div id="buttons-tag" class="btn-grid">
+                <div id="buttons-tag" class="grid-tag">
                 </div>
             </div>
 
@@ -182,9 +194,9 @@
                 <div class="calculator position-fixed bottom-0 start-0">
                     <input type="text" name="entry.1684593184" class="calculator-screen form-control" id="input-num" />
 
-                    <!-- note -->                    
-                    <input type="text" name="entry.1362389910" class="input-note form-control fw-bold" placeholder="添加備註"
-                        id="input-note" />
+                    <!-- note -->
+                    <input type="text" name="entry.1362389910" class="input-note form-control fw-bold"
+                        placeholder="添加備註" id="input-note" />
 
                     <!-- input-who / input-foi (display:none) -->
                     <input type="text" name="entry.2020362744" style="display:none" id="input-who" value="Don" />
@@ -219,7 +231,8 @@
                     <!-- Button 0 -->
                     <button type="button" value="0" class="btn-zero btn btn-num ">0</button>
 
-                    <button type="button" class="btn btn-num btn-date" id="btn-date"><i class="bi bi-calendar"></i></button>
+                    <button type="button" class="btn btn-num btn-date" id="btn-date"><i
+                            class="bi bi-calendar"></i></button>
                     <input type="date" class="form-control btn-date transparent" id="input-date" />
 
                     <!-- <input type="date" name="entry.336340770" class="btn btn-func none" id="input-date" />
