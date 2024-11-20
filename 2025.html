@@ -41,7 +41,7 @@
         }
 
         /* Category, Tag, Note button */
-        .btn-1 {
+        .btn-category, .btn-tag {
             color: #262626;
             background-color: #FFFFFF;
             border-color: #262626;
@@ -52,7 +52,7 @@
             width: 100%;
         }
 
-        .btn-1-checked, .btn-1-checked:hover {
+        .btn-category-checked, .btn-category-checked:hover, .btn-tag-checked, .btn-tag-checked:hover {
             color: #262626;
             background-color: #FFFFFF;
             border-width: 0.125rem;
@@ -75,7 +75,7 @@
 
         .grid-tag {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             grid-gap: 0.5rem;
             padding: 1rem 0.5rem;
             background-color: #f7f7f7;
@@ -175,12 +175,12 @@
                     <input type="text" name="entry.1200813851" class="form-control fw-bold" placeholder="項目..."
                         id="input-category" />
                 </div>
-                <button type="button" class="btn btn-1" onclick="updateCategory(this)">生活必需</button>
-                <button type="button" class="btn btn-1" onclick="updateCategory(this)">儲蓄投資</button>
-                <button type="button" class="btn btn-1" onclick="updateCategory(this)">醫療保健</button>
-                <button type="button" class="btn btn-1" onclick="updateCategory(this)">娛樂休閒</button>
-                <button type="button" class="btn btn-1" onclick="updateCategory(this)">社交禮物</button>
-                <button type="button" class="btn btn-1" onclick="updateCategory(this)">家庭專案</button>
+                <button type="button" class="btn btn-category" onclick="updateCategory(this)">生活必需</button>
+                <button type="button" class="btn btn-category" onclick="updateCategory(this)">儲蓄投資</button>
+                <button type="button" class="btn btn-category" onclick="updateCategory(this)">醫療保健</button>
+                <button type="button" class="btn btn-category" onclick="updateCategory(this)">娛樂休閒</button>
+                <button type="button" class="btn btn-category" onclick="updateCategory(this)">社交禮物</button>
+                <button type="button" class="btn btn-category" onclick="updateCategory(this)">家庭專案</button>
             </div>
 
             <!-- Tag -->
@@ -278,16 +278,18 @@
         function updateCategory(btn) {
             const input_category = document.getElementById("input-category");
             input_category.value = btn.innerHTML;
-            const elements = document.querySelectorAll('.btn-1-checked');
+
+            const elements = document.querySelectorAll('.btn-category-checked');
             try {
-                elements.forEach((element) => element.classList.remove("btn-1-checked"));                
-                elements.forEach((element) => element.classList.add("btn-1"));
+                elements.forEach((element) => element.classList.remove("btn-category-checked"));                
+                elements.forEach((element) => element.classList.add("btn-category"));
             }
             catch{
                 console.log("no checked");
             }
-            btn.classList.remove("btn-1");
-            btn.classList.add("btn-1-checked");
+            btn.classList.remove("btn-category");
+            btn.classList.add("btn-category-checked");
+
             addButttons(btn.innerHTML);
         }
 
@@ -320,7 +322,7 @@
             buttonsTag.textContent = '';
             for (let i = 0; i < tagsName.length; i++) {
                 let span = document.createElement('span');
-                span.innerHTML = '<button type="button" class="btn btn-1" onclick="updateTag(this)">' + tagsName[i] + '</button>';
+                span.innerHTML = '<button type="button" class="btn btn-tag" onclick="updateTag(this)">' + tagsName[i] + '</button>';
                 buttonsTag.appendChild(span);
             }
         }
@@ -329,6 +331,17 @@
         function updateTag(btn) {
             const input_tag = document.getElementById("input-tag");
             input_tag.value = btn.innerHTML;
+
+            const elements = document.querySelectorAll('.btn-tag-checked');
+            try {
+                elements.forEach((element) => element.classList.remove("btn-tag-checked"));                
+                elements.forEach((element) => element.classList.add("btn-tag"));
+            }
+            catch{
+                console.log("no checked");
+            }
+            btn.classList.remove("btn-tag");
+            btn.classList.add("btn-tag-checked");
         }
     </script>
 
