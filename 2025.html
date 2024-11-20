@@ -40,7 +40,7 @@
             background-color: #f7f7f7;
         }
 
-        /* Project, Tag, Note button */
+        /* Category, Tag, Note button */
         .btn-1 {
             color: #262626;
             background-color: #FFFFFF;
@@ -52,11 +52,16 @@
             width: 100%;
         }
 
-        .btn-1:hover {
+        .btn-1-checked {
+            color: #262626;
             background-color: #FFFFFF;
             border-width: 0.125rem;
             border-color: #ffd632;
             border-style: solid;
+            border-radius: 0.25rem;
+            font-weight: bold;
+            font-size: 1.25rem;
+            width: 100%;
         }
 
         .grid-category {
@@ -163,19 +168,19 @@
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSesS49q0SAiLKjHUzL8K62MlNs-af1-Nd8rtmsMkmWfdo4Fig/formResponse"
             method="POST">
 
-            <!-- Project -->
+            <!-- Category -->
             <div class="grid-category">
                 <div class="input-group none">
                     <span class="input-group-text"><i class="bi bi-kanban-fill"></i></span>
                     <input type="text" name="entry.1200813851" class="form-control fw-bold" placeholder="項目..."
-                        id="input-project" />
+                        id="input-category" />
                 </div>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">生活必需</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">儲蓄投資</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">醫療保健</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">娛樂休閒</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">社交禮物</button>
-                <button type="button" class="btn btn-1" onclick="updateProject(this)">家庭專案</button>
+                <button type="button" class="btn btn-1" onclick="updateCategory(this)">生活必需</button>
+                <button type="button" class="btn btn-1" onclick="updateCategory(this)">儲蓄投資</button>
+                <button type="button" class="btn btn-1" onclick="updateCategory(this)">醫療保健</button>
+                <button type="button" class="btn btn-1" onclick="updateCategory(this)">娛樂休閒</button>
+                <button type="button" class="btn btn-1" onclick="updateCategory(this)">社交禮物</button>
+                <button type="button" class="btn btn-1" onclick="updateCategory(this)">家庭專案</button>
             </div>
 
             <!-- Tag -->
@@ -190,7 +195,7 @@
             </div>
 
             <!-- Keyboard -->
-            <div class="row">
+            <div class="row none">
                 <div class="calculator position-fixed bottom-0 start-0">
                     <input type="text" name="entry.1684593184" class="calculator-screen form-control" id="input-num" />
 
@@ -198,9 +203,9 @@
                     <input type="text" name="entry.1362389910" class="input-note form-control fw-bold"
                         placeholder="添加備註" id="input-note" />
 
-                    <!-- input-who / input-foi (display:none) -->
-                    <input type="text" name="entry.2020362744" style="display:none" id="input-who" value="Don" />
-                    <input type="text" name="entry.160380978" style="display:none" id="input-foi" value="家庭" />
+                    <!-- input-who / input-foi -->
+                    <input type="text" name="entry.2020362744" class="none" id="input-who" value="Don" />
+                    <input type="text" name="entry.160380978" class="none" id="input-foi" value="家庭" />
 
                     <!-- Button 789 -->
                     <button type="button" value="7" class="btn btn-num">7</button>
@@ -269,10 +274,20 @@
     </script>
 
     <script>
-        // Project
-        function updateProject(btn) {
-            const input_project = document.getElementById("input-project");
-            input_project.value = btn.innerHTML;
+        // Category
+        function updateCategory(btn) {
+            const input_category = document.getElementById("input-category");
+            input_category.value = btn.innerHTML;
+            const elements = document.querySelectorAll('.btn-1-checked');
+            try {
+                elements.forEach((element) => element.classList.remove("btn-1-checked"));                
+                elements.forEach((element) => element.classList.add("btn-1"));
+            }
+            catch{
+                console.log("no checked");
+            }
+            btn.classList.remove("btn-1");
+            btn.classList.add("btn-1-checked");
             addButttons(btn.innerHTML);
         }
 
