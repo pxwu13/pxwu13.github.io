@@ -26,11 +26,6 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-
     <!-- CSS -->
     <style>
         html {
@@ -102,7 +97,7 @@
             background-color: #f7f7f7;
             border-style: none;
             grid-row: 1;
-            grid-column: 1 / 4;
+            grid-column: 1 / 3;
             margin-bottom: 0.5rem;
         }
 
@@ -181,21 +176,15 @@
                 </div>
             </div>
 
-            <!-- Note -->
-            <div class="mb-2">
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-file-earmark-text-fill"></i></span>
-                    <input type="text" name="entry.1362389910" class="form-control fw-bold" placeholder="添加備註"
-                        id="input-note" />
-                </div>
-            </div>
-
             <!-- Keyboard -->
             <div class="row">
                 <div class="calculator position-fixed bottom-0 start-0">
                     <input type="text" name="entry.1684593184" class="calculator-screen form-control" id="input-num" />
-                    <input type="text" name="entry.1362389910" class="input-note form-control fw-bold" placeholder="備註..."
+
+                    <!-- note -->                    
+                    <input type="text" name="entry.1362389910" class="input-note form-control fw-bold" placeholder="添加備註"
                         id="input-note" />
+
                     <!-- input-who / input-foi (display:none) -->
                     <input type="text" name="entry.2020362744" style="display:none" id="input-who" value="Don" />
                     <input type="text" name="entry.160380978" style="display:none" id="input-foi" value="家庭" />
